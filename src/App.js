@@ -1,21 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo, useRef, useState } from "react";
 import { ThemeContext } from "./useTheme";
 
 export default function App() {
     const { Theme, SwitchTheme } = useContext(ThemeContext);
-    const ThemeStle = {
-        backgroundColor: `${Theme === "dark" ? "black" : "white"}`,
-        color: `${Theme === "dark" ? "white" : "black"}`,
-        borderColor: `${Theme === "dark" ? "white" : "black"}`,
-    };
+    const [count, setCount] = useState(0)
+    const count2 = useRef(0)
+
+    const getTheme = useMemo(() => {
+        return processTheme(Theme);
+    }, [Theme]) // Memoize the theme! createsTheme on Theme variable value change only
+    // const getTheme = processTheme(Theme); // createsTheme on each render
+
     return (
-        <div style={{ ...ThemeStle, padding: "1rem" }} className="text-red-900">
+        <div style={{ ...getTheme, padding: "1rem" }} >
             hey there {Theme.toUpperCase()} <br />
             <br />
             <br />
-            <button style={ThemeStle} onClick={SwitchTheme}>
+            <button style={getTheme} onClick={SwitchTheme}>
                 switch theme
+            </button>
+            <button style={{ ...getTheme, padding: "1rem" }} onClick={() => {
+                setCount(preCount => preCount + 1)
+            }}>
+                {count}
+            </button>
+            <button style={{ ...getTheme, padding: "1rem" }} onClick={() => {
+                count2.current += 1;
+            }}>
+                {count2.current}
             </button>
         </div>
     );
+}
+function processTheme(Theme) {
+    console.log("processing Theme...");
+    console.log(Theme);
+    return {
+        backgroundColor: `${Theme === "dark" ? "black" : "white"}`,
+        color: `${Theme === "dark" ? "white" : "black"}`,
+        borderColor: `${Theme === "dark" ? "white" : "black"}`,
+    }
 }
