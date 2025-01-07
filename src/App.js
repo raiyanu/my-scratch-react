@@ -1,11 +1,21 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "./useTheme";
 
 export default function App() {
-    const theme = useContext(ThemeContext);
-    let themeStyle = {
-        background: `${theme === "dark" ? "black" : "white"}`,
-        color: `${!theme === "dark" ? "black" : "white"}`,
+    const { Theme, SwitchTheme } = useContext(ThemeContext);
+    const ThemeStle = {
+        backgroundColor: `${Theme === "dark" ? "black" : "white"}`,
+        color: `${Theme === "dark" ? "white" : "black"}`,
+        borderColor: `${Theme === "dark" ? "white" : "black"}`,
     };
-    return <div style={themeStyle}>hey there</div>;
+    return (
+        <div style={{ ...ThemeStle, padding: "1rem" }}>
+            hey there {Theme.toUpperCase()} <br />
+            <br />
+            <br />
+            <button style={ThemeStle} onClick={SwitchTheme}>
+                switch theme
+            </button>
+        </div>
+    );
 }
