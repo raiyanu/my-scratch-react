@@ -1,22 +1,11 @@
-import React, { useActionState, useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "./useTheme";
 
 export default function App() {
-
-    const [state, formAction, isPending] = useActionState(delayer, null)
-    return <form >
-        <label htmlFor="Atext">Form Action : {state} </label> <br /><br />
-        <input defaultValue={"hey"} type="text" name="Atext" id="Atext" /><br /><br />
-        <button formAction={formAction} disabled={isPending}>Trigger</button>
-    </form>;
-}
-
-
-function delayer(previousState, formData) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            console.log(formData); formData.get('Atext')
-            console.log(formData.get('Atext'));
-            resolve(formData.get('Atext'));
-        }, 1000);
-    });
+    const theme = useContext(ThemeContext);
+    let themeStyle = {
+        background: `${theme === "dark" ? "black" : "white"}`,
+        color: `${!theme === "dark" ? "black" : "white"}`,
+    };
+    return <div style={themeStyle}>hey there</div>;
 }
