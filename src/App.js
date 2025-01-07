@@ -1,7 +1,9 @@
-import React, { useContext, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { ThemeContext } from "./useTheme";
 
 export default function App() {
+    const UID = useId();
+    console.log(UID)
     const { Theme, SwitchTheme } = useContext(ThemeContext);
     const [count, setCount] = useState(0)
     const count2 = useRef(0)
@@ -17,19 +19,20 @@ export default function App() {
             hey there {Theme.toUpperCase()} <br />
             <br />
             <br />
-            <button style={deferedTheme} onClick={SwitchTheme}>
+            <button style={{ ...deferedTheme, padding: "1rem 2rem", }} onClick={SwitchTheme}>
                 switch theme
             </button>
-            <button style={{ ...getTheme, padding: "1rem" }} onClick={() => {
+            <button style={{ ...getTheme, padding: "1rem 2rem", margin: "10px" }} onClick={() => {
                 setCount(preCount => preCount + 1)
             }}>
                 {count}
             </button>
-            <button style={{ ...getTheme, padding: "1rem" }} onClick={() => {
+            <button style={{ ...getTheme, padding: "1rem 2rem" }} onClick={() => {
                 count2.current += 1;
             }}>
                 {count2.current}
             </button>
+            <h1>Id : <b> {UID}</b> </h1>
         </div>
     );
 }

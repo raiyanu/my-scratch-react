@@ -8,7 +8,7 @@
 - [x] useDebugValue
 - [x] useEffect
 - [x] useCallback
-- [ ] useDeferredValue
+- [x] useDeferredValue
 - [ ] useId
 - [ ] useImperativeHandle
 - [ ] useInsertionEffect
