@@ -1,18 +1,18 @@
-import React, { useContext, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { ThemeContext } from "./useTheme";
 
 export default function App() {
     const { Theme, SwitchTheme } = useContext(ThemeContext);
     const [count, setCount] = useState(0)
     const count2 = useRef(0)
-
     const getTheme = useMemo(() => {
-        return processTheme(Theme);
-    }, [Theme]) // Memoize the theme! createsTheme on Theme variable value change only
-    // const getTheme = processTheme(Theme); // createsTheme on each render
+        return ProcessTheme(Theme);
+    }, [Theme]) // Memoize the theme! createsTheme on Theme variable value change only\
+
+    // const getTheme = ProcessTheme(Theme); // createsTheme on each render
 
     return (
-        <div style={{ ...getTheme, padding: "1rem" }} >
+        <div style={{ ...getTheme, padding: "1rem" }}>
             hey there {Theme.toUpperCase()} <br />
             <br />
             <br />
@@ -32,7 +32,7 @@ export default function App() {
         </div>
     );
 }
-function processTheme(Theme) {
+function ProcessTheme(Theme) {
     console.log("processing Theme...");
     console.log(Theme);
     return {

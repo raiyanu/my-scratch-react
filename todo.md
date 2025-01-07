@@ -5,9 +5,10 @@
 - [x] useContext
 - [x] useMemo
 - [x] useRef
-- [ ] useDebugValue
+- [x] useDebugValue
+- [x] useEffect
+- [x] useCallback
 - [ ] useDeferredValue
-- [ ] useEffect
 - [ ] useId
 - [ ] useImperativeHandle
 - [ ] useInsertionEffect
@@ -16,4 +17,3 @@
 - [ ] useReducer
 - [ ] useSyncExternalStore
 - [ ] useTransition
-- [ ] useCallback
