@@ -1,27 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 export default function App() {
-    const [btn, setBtn] = useState(0)
+    const [btn, setBtn] = useState(0);
     return (
-        <div>
-            <p>
-
-                My React App
-            </p>
-
-            <button onClick={() => {
-                setBtn(btn - 1)
-            }}>-</button>
-            <p>
-                {btn}
-            </p>
-            <button onClick={() => {
-                setBtn(pre => pre + 1);
-                setBtn(pre => pre + 1);
-                setBtn(pre => pre + 1);
-
-            }}>+</button>
+        <div className="hero bg-base-200 min-h-screen">
+            <div className="hero-content text-center">
+                <div className="max-w-md">
+                    <h1 className="text-5xl font-bold">Hello there</h1>
+                    <p className="py-6">
+                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                    </p>
+                    <button className="btn btn-primary">Get Started</button>
+                </div>
+            </div>
         </div>
-
-    )
+    );
 }
