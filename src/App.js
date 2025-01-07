@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { ThemeContext } from "./useTheme";
 
 export default function App() {
@@ -9,6 +9,7 @@ export default function App() {
         return ProcessTheme(Theme);
     }, [Theme]) // Memoize the theme! createsTheme on Theme variable value change only\
 
+    const deferedTheme = useDeferredValue(getTheme);
     // const getTheme = ProcessTheme(Theme); // createsTheme on each render
 
     return (
@@ -16,7 +17,7 @@ export default function App() {
             hey there {Theme.toUpperCase()} <br />
             <br />
             <br />
-            <button style={getTheme} onClick={SwitchTheme}>
+            <button style={deferedTheme} onClick={SwitchTheme}>
                 switch theme
             </button>
             <button style={{ ...getTheme, padding: "1rem" }} onClick={() => {
@@ -38,6 +39,6 @@ function ProcessTheme(Theme) {
     return {
         backgroundColor: `${Theme === "dark" ? "black" : "white"}`,
         color: `${Theme === "dark" ? "white" : "black"}`,
-        borderColor: `${Theme === "dark" ? "white" : "black"}`,
+        border: `1px solid ${Theme === "dark" ? "white" : "black"}`,
     }
 }
