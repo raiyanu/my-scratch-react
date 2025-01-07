@@ -9,7 +9,7 @@ export default function App() {
         borderColor: `${Theme === "dark" ? "white" : "black"}`,
     };
     return (
-        <div style={{ ...ThemeStle, padding: "1rem" }}>
+        <div style={{ ...ThemeStle, padding: "1rem" }} className="text-red-900">
             hey there {Theme.toUpperCase()} <br />
             <br />
             <br />
