@@ -1,9 +1,9 @@
 import React, { useContext, useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { ThemeContext } from "./useTheme";
+import Box from "./Box";
 
 export default function App() {
     const UID = useId();
-    console.log(UID)
     const { Theme, SwitchTheme } = useContext(ThemeContext);
     const [count, setCount] = useState(0)
     const count2 = useRef(0)
@@ -33,6 +33,8 @@ export default function App() {
                 {count2.current}
             </button>
             <h1>Id : <b> {UID}</b> </h1>
+
+            <Box style={{ backgroundColor: 'red' }} />
         </div>
     );
 }

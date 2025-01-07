@@ -1,4 +1,4 @@
-# Hook to checkout
+# Hook to Checkout
 
 - [x] useState
 - [x] useActionState
@@ -9,7 +9,7 @@
 - [x] useEffect
 - [x] useCallback
 - [x] useDeferredValue
-- [ ] useId
+- [x] useId
 - [ ] useImperativeHandle
 - [ ] useInsertionEffect
 - [ ] useLayoutEffect
@@ -17,3 +17,17 @@
 - [ ] useReducer
 - [ ] useSyncExternalStore
 - [ ] useTransition
+
+# APIs to Checkout
+
+- [x] forwardRef
+- [ ] act
+- [ ] act
+- [ ] cache
+- [ ] createContext
+- [ ] lazy
+- [ ] memo
+- [ ] startTransition
+- [ ] use
+- [ ] experimental_taintObjectReference
+- [ ] experimental_taintUniqueValue
