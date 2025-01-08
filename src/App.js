@@ -1,12 +1,12 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useSyncExternalStore } from 'react'
+import userOnlineStatus from './userOnlineStatus';
 
 function reducer(STATE, ACTION) {
     console.log(STATE);
     switch (ACTION.type) {
         case "ADD":
             console.log(ACTION.payload);
-            STATE = [ACTION.payload, ...STATE]
-            return STATE;
+            return [ACTION.payload, ...STATE];
         default:
             return STATE;
     }
@@ -17,13 +17,17 @@ const createInitialTodoState = (initialTodoState) => {
     initialTodoState.push("hey");
     return initialTodoState;
 }
+
+
 export default function App() {
     const [state, dispatch] = useReducer(reducer, initialTodoState, createInitialTodoState)
     function formAction(formData) {
         if (formData.get('todoInput')) dispatch({ type: "ADD", payload: formData.get('todoInput') })
     }
+    const isOnline = useSyncExternalStore(userOnlineStatus.subscribe, userOnlineStatus.getSnapShot)
     return (
         <div className='p-4'>
+            {isOnline ? <h1>You are online</h1> : <h1>You are Offline</h1>}
             <h1>TODO</h1>
             <form action={formAction}>
                 <input type='text' name="todoInput" className='input input-sm input-bordered w-full max-w-xs' />

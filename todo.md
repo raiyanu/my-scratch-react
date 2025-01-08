@@ -15,7 +15,7 @@
 - [x] useImperativeHandle
 - [x] useLayoutEffect
 - [x] useOptimistic
-- [ ] useReducer
+- [x] useReducer
 - [ ] useSyncExternalStore
 - [ ] useTransition
 - [ ] useInsertionEffect
