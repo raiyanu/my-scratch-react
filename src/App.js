@@ -11,9 +11,14 @@ function reducer(STATE, ACTION) {
             return STATE;
     }
 }
+const initialTodoState = [];
 
+const createInitialTodoState = (initialTodoState) => {
+    initialTodoState.push("hey");
+    return initialTodoState;
+}
 export default function App() {
-    const [state, dispatch] = useReducer(reducer, [])
+    const [state, dispatch] = useReducer(reducer, initialTodoState, createInitialTodoState)
     function formAction(formData) {
         if (formData.get('todoInput')) dispatch({ type: "ADD", payload: formData.get('todoInput') })
     }
