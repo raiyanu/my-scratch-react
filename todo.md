@@ -11,12 +11,12 @@
 - [x] useDeferredValue
 - [x] useId
 - [x] useImperativeHandle
-- [ ] useInsertionEffect
-- [ ] useLayoutEffect
+- [x] useLayoutEffect
 - [ ] useOptimistic
 - [ ] useReducer
 - [ ] useSyncExternalStore
 - [ ] useTransition
+- [ ] useInsertionEffect
 
 # APIs to Checkout
 
