@@ -10,7 +10,7 @@
 - [x] useCallback
 - [x] useDeferredValue
 - [x] useId
-- [ ] useImperativeHandle
+- [x] useImperativeHandle
 - [ ] useInsertionEffect
 - [ ] useLayoutEffect
 - [ ] useOptimistic
