@@ -9,7 +9,7 @@ const Box = forwardRef((props, ref) => {
         setTooltipPadding(height);
     }, []);
     return (
-        <div {...otherProps} style={{ padding: tooltipPadding }} ref={inputRef}>Box</div>
+        <div {...otherProps} style={{ padding: tooltipPadding }} ref={inputRef} >Box</div>
     )
 });
 
