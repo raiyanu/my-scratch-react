@@ -12,7 +12,7 @@
 - [x] useId
 - [x] useImperativeHandle
 - [x] useLayoutEffect
-- [ ] useOptimistic
+- [x] useOptimistic
 - [ ] useReducer
 - [ ] useSyncExternalStore
 - [ ] useTransition
