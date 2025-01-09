@@ -1,5 +1,5 @@
-import React, { useState, useEffect, memo } from 'react'
-
+import React, { useState, useEffect, memo, use } from 'react'
+import { ThemeContext } from './useTheme';
 export default function App() {
     const [count, setCount] = useState(0);
     const handleClick = () => {
@@ -9,10 +9,12 @@ export default function App() {
     useEffect(() => {
         document.title = `You clicked ${count} times`;
     }, [count]);
+    console.log(use(ThemeContext));
 
     return (
         <div className='prose lg:prose-xl'>
             <div>
+                <h1 className='cursor-pointer select-none' onClick={use(ThemeContext).SwitchTheme}>Theme : {use(ThemeContext).Theme} </h1>
                 <h1 className=''>You clicked {count} times</h1>
                 <button className='btn' onClick={handleClick}>
                     Click me
