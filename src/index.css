@@ -920,6 +920,11 @@ html {
   margin-inline-end: -0px;
 }
 
+.link {
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
 .radio {
   flex-shrink: 0;
   --chkbg: var(--bc);
@@ -1097,6 +1102,16 @@ html {
 
 .join > :where(*:not(:first-child)):is(.btn) {
   margin-inline-start: calc(var(--border-btn) * -1);
+}
+
+.link:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .mockup-browser .mockup-browser-toolbar .input {
